@@ -22,6 +22,12 @@ public class GMap {
         mapCenter = new LngLat(30.36, 50.46);
     }
 
+    public GMap(int mapZoom, LngLat mapCenter) {
+        generateMapId();
+        this.mapZoom = mapZoom;
+        this.mapCenter = mapCenter;
+    }
+
     public int getMapId() {
         return mapId;
     }
@@ -122,4 +128,11 @@ public class GMap {
         markersList.remove(marker);
     }
 
+    @Override
+    public String toString() {
+        return "{" +
+                "\"mapZoom\":" + mapZoom +
+                ", \"mapCenter\":" + mapCenter +
+                "}";
+    }
 }

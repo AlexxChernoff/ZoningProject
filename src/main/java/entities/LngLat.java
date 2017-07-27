@@ -25,4 +25,12 @@ public class LngLat {
     public void setLat(double lat) {
         this.lat = lat;
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "\"lng\":" + lng +
+                ", \"lat\":" + lat +
+                "}";
+    }
 }

@@ -4,6 +4,11 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 
-<GridPane fx:controller="controllers.AppStartController" xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+<?import javafx.scene.layout.AnchorPane?>
 
-</GridPane>
+<?import javafx.scene.layout.HBox?>
+<AnchorPane fx:controller="controllers.AppStartController" xmlns:fx="http://javafx.com/fxml" >
+    <HBox alignment="CENTER" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.topAnchor="0">
+        <Button fx:id="toMapBtn" prefWidth="70.0" text="To map" />
+    </HBox>
+</AnchorPane>
