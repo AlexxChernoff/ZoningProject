@@ -13,6 +13,7 @@ public class GMap {
     private List<Zone> zonesList = new ArrayList<>();
     private List<MarkerType> markerTypesList = new ArrayList<>();
     private List<Marker> markersList = new ArrayList<>();
+    private ChangesHistory changesHistory = new ChangesHistory();
 
     public GMap() {
         generateMapId();
@@ -22,10 +23,9 @@ public class GMap {
         mapCenter = new LngLat(30.36, 50.46);
     }
 
-    public GMap(int mapZoom, LngLat mapCenter) {
-        generateMapId();
-        this.mapZoom = mapZoom;
-        this.mapCenter = mapCenter;
+    public GMap(String mapName) {
+        super();
+        this.setMapName(mapName);
     }
 
     public int getMapId() {
@@ -128,11 +128,25 @@ public class GMap {
         markersList.remove(marker);
     }
 
-    @Override
-    public String toString() {
+    public String toJson() {
         return "{" +
                 "\"mapZoom\":" + mapZoom +
                 ", \"mapCenter\":" + mapCenter +
                 "}";
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "\"mapId\":" + mapId +
+                ", \"mapName\":\"" + mapName + "\"" +
+                ", \"mapZoom\":" + mapZoom +
+                ", \"mapType\":\"" + mapType + "\"" +
+                ", \"mapCenter\":" + mapCenter +
+                ", \"zonesList\":" + zonesList +
+                ", \"markerTypesList\":" + markerTypesList +
+                ", \"markersList\":" + markersList +
+                ", \"changesHistory\":" + changesHistory +
+                '}';
     }
 }

@@ -39,8 +39,10 @@
 
     var map;
     var startLocation = {lat: 50.46, lng: 30.36};
-    var lastEvent;
-    var mapMode;
+    var lastEvent = "none";
+    var mapMode = "none";
+    var zonesList = [];
+    var markersList = [];
 
     function initMap() {
 
@@ -63,6 +65,18 @@
             document.getElementById('zoom-label').innerHTML = "Zoom " + map.getZoom();
         });
 
+        map.addListener('click', function (event) {
+            //lastEvent = "map_click";
+        });
+
+        map.addListener('dragstart', function (event) {
+            //lastEvent = "map_dragstart";
+        });
+
+        map.addListener('dragend', function (event) {
+            //lastEvent = "map_dragend";
+        });
+
         map.addListener('tilesloaded', function (event) {
             document.getElementById('zoom-label').innerHTML = "Zoom " + map.getZoom();
         });
@@ -74,6 +88,50 @@
         var gMapObj = JSON.parse(gMapJSON);
         map.setCenter(gMapObj.mapCenter);
         map.setZoom(gMapObj.mapZoom);
+    }
+
+    function getLastEvent() {
+        return lastEvent;
+    }
+
+    function setMapMode(mapModeNew) {
+        switch(mapModeNew) {
+            case "ZONES":
+                setZonesMapMode();
+                break;
+            case "MARKERS":
+                setMarkersMapMode();
+                break;
+            case "STATISTIC":
+                setStatisticMapMode();
+                break;
+            case "PRINTER":
+                setPrinterMapMode();
+                break;
+            default:
+                break;
+        }
+        mapMode = mapModeNew;
+    }
+
+    function setZonesMapMode() {
+        map.setOptions({draggableCursor:'crosshair'});
+    }
+
+    function setMarkersMapMode() {
+        map.setOptions({draggableCursor:'pointer'});
+    }
+
+    function setStatisticMapMode() {
+        map.setOptions({draggableCursor:'move'});
+    }
+
+    function setPrinterMapMode() {
+        map.setOptions({draggableCursor:'progress'});
+    }
+
+    function startDrawPolygon() {
+
     }
 
 </script>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.paint.Color?>
+
+<GridPane id="modal-dialog" fx:controller="controllers.AddZoneController" xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="20" vgap="10">
+
+    <padding>
+        <Insets top="25" right="25" bottom="10" left="25"/>
+    </padding>
+
+<!--<ImageView id="boxImage" GridPane.columnIndex="0" GridPane.rowIndex="0">-->
+    <!--<Image url="@../images/add_zone.png" requestedWidth="56" requestedHeight="56"/>-->
+<!--</ImageView>-->
+
+    <Text id="title-text" text="Добавление новой зоны" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+    <Label text="Название зоны:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+
+    <TextField fx:id="zoneNameField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+    <Label text="Цвет заливки:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+
+    <ColorPicker fx:id="zoneFillColor" GridPane.columnIndex="1" GridPane.rowIndex="2" AnchorPane.bottomAnchor="85" AnchorPane.rightAnchor="115">
+        <value>
+            <Color red="1.0" />
+        </value>
+    </ColorPicker>
+
+    <HBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="3">
+        <Label text="Непрозрачность:" />
+        <Label fx:id="opacityValueLabel" text="50%" />
+    </HBox>
+
+    <Slider fx:id="zoneOpacitySlider"  GridPane.columnIndex="1" GridPane.rowIndex="3" blockIncrement="0.1"  value="0.5" max="1.0" />
+
+    <Label text="Цвет обводки:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+
+    <ColorPicker fx:id="strokeFillColor" GridPane.columnIndex="1" GridPane.rowIndex="4" AnchorPane.bottomAnchor="85" AnchorPane.rightAnchor="115">
+        <value>
+            <Color red="1.0" />
+        </value>
+    </ColorPicker>
+
+    <HBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="5">
+        <Label text="Размер обводки:"/>
+        <Label fx:id="strokeValueLabel" text="1px" />
+    </HBox>
+
+    <Slider fx:id="zoneStrokeWeightSlider"  GridPane.columnIndex="1" GridPane.rowIndex="5" blockIncrement="1"  value="1" max="10" />
+
+    <HBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="6">
+        <Label text="Непрозрачность:" />
+        <Label fx:id="opacityStrokeValueLabel" text="50%" />
+    </HBox>
+
+    <Slider fx:id="zoneStrokeOpacitySlider"  GridPane.columnIndex="1" GridPane.rowIndex="6" blockIncrement="0.1"  value="0.5" max="1.0" />
+
+    <HBox spacing="10" alignment="bottom_right" GridPane.columnIndex="1" GridPane.rowIndex="7">
+        <Button prefWidth="100.0" text="Добавить" onAction="#handleAddBtn" />
+        <Button prefWidth="100.0" text="Отмена" onAction="#handleCancelAddBtn" />
+    </HBox>
+
+</GridPane>

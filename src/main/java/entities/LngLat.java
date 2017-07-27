@@ -26,11 +26,15 @@ public class LngLat {
         this.lat = lat;
     }
 
-    @Override
-    public String toString() {
+    public String toJson() {
         return "{" +
                 "\"lng\":" + lng +
                 ", \"lat\":" + lat +
                 "}";
+    }
+
+    @Override
+    public String toString() {
+        return toJson();
     }
 }
